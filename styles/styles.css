@@ -1,0 +1,30 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.hero {
+    background: url('https://ervinusa.com/wp-content/uploads/2020/06/ervin-hero.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.section {
+    padding: 0px 0;
+}
+.box{
+    display: flex;
+    flex-direction: row;
+}
+img{
+
+    width: 130px;
+}

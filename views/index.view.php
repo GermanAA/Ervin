@@ -7,30 +7,8 @@
     <title>Ervin USA Replica</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
+    <link rel="stylesheet" href="styles/styles.css">
 
-        .hero {
-            background: url('https://ervinusa.com/wp-content/uploads/2020/06/ervin-hero.jpg') no-repeat center center;
-            background-size: cover;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-        }
-
-        .section {
-            padding: 0px 0;
-        }
-    </style>
 </head>
 
 <body>
@@ -172,6 +150,48 @@
             </div>
         </div>
     </section>
+
+    <div class="container">
+
+
+        <div class="row">
+
+
+            <?php foreach ($fotos as $foto) : ?>
+
+                <div class="col-6 col-lg-3">
+                    <img src="img/inv/<?php echo $foto['Ruta'] ?>" alt="">
+
+                    <div class="col-lg-12">
+
+                        <p><?php echo $foto['Fabricante'] . " " . "Modelo:" . $foto['Modelo'] ?></p>
+                        <p><?php echo $foto['Ubicacion'] . " " . "$" . $foto['Price'] ?></p>
+                        <p><?php echo $foto['Estatus'] ?></p>
+                    </div>
+
+                </div>
+
+            <?php endforeach; ?>
+
+        </div>
+        <br>
+
+        <div class="paginacion">
+
+            <?php if ($pagina_actual > 1) : ?>
+                <a href="index.php?p=<?php echo $pagina_actual - 1; ?>"><i class="fa fa-long-arrow-left"></i> Página Anterior</a>
+            <?php endif ?>
+
+            <?php if ($total_paginas != $pagina_actual) : ?>
+                <a href="index.php?p=<?php echo $pagina_actual + 1; ?>">Página Siguiente <i class="fa fa-long-arrow-right"></i> </a>
+            <?php endif ?>
+
+            <!-- <a href=""><i class="fa fa-long-arrow-left"></i> Página Anterior</a>
+            <a href="">Página Siguiente <i class="fa fa-long-arrow-right"></i> </a> -->
+        </div>
+
+    </div>
+
 
 
 
