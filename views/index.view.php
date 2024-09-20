@@ -13,9 +13,12 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Ervin USA</a>
+            <a class="navbar-brand" href="#">
+                <img src="img/Logo-Header.png" alt="Logo" width="30" height="50" class="d-inline-block align-text-top">
+                
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -23,16 +26,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" aria-current="page" href="#">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
+                        <a class="nav-link" href="#">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Products</a>
+                        <a class="nav-link" href="#">Inventario</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="#">Contacto</a>
                     </li>
 
                 </ul>
@@ -40,46 +43,45 @@
         </div>
     </nav>
 
-    <section class="section bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="cycling-banner-background-photo"
-                        style="min-height: 174.9px; background-image: url('https://ervinusa.com/wp-content/uploads/2020/06/ervin-hero.jpg'); background-size: cover; background-position: center;">
-                    </div>
+
+    <div class="container-fluid text-center">
+        <div class="row section">
+            <div class="col-md-12">
+                <div class="cycling-banner-background-photo"
+                    style="min-height: 174.9px; background-image: url('https://ervinusa.com/wp-content/uploads/2020/06/ervin-hero.jpg'); background-size: cover; background-position: center;">
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Hero Section -->
-    <section class="hero text-center">
-        <h1>Welcome to Ervin USA</h1>
-        <p>Providing the highest quality products for over 100 years</p>
-        <a href="#" class="btn btn-primary mt-3">Learn More</a>
-    </section>
+        <div class="row section">
 
-    <!-- About Section -->
-    <section class="section bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="https://ervinusa.com/wp-content/uploads/2020/06/ervin-about.jpg" alt="About Us"
-                        class="img-fluid">
-                </div>
-                <div class="col-md-6">
-                    <h2>About Us</h2>
-                    <p>Ervin USA is a leader in the metal shot and grit industry. Our focus is on delivering the best
-                        products with superior customer service.</p>
-                    <a href="#" class="btn btn-outline-secondary">Read More</a>
-                </div>
+            <!-- Hero Section -->
+
+            <h1>Welcome to Ervin USA</h1>
+            <p>Providing the highest quality products for over 100 years</p>
+            <a href="#" class="btn btn-primary mt-3">Learn More</a>
+
+
+        </div>
+
+        <!-- About Section -->
+
+        <div class="row section">
+            <div class="col-md-6">
+                <img src="https://ervinusa.com/wp-content/uploads/2020/06/ervin-about.jpg" alt="About Us"
+                    class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h2>About Us</h2>
+                <p>Ervin USA is a leader in the metal shot and grit industry. Our focus is on delivering the best
+                    products with superior customer service.</p>
+                <a href="#" class="btn btn-outline-secondary">Read More</a>
             </div>
         </div>
-    </section>
 
-    <!-- Search Equipment Inventory Section -->
-    <section class="section bg-light py-5">
-        <div class="container">
+        <!-- Search Equipment Inventory Section -->
+
+        <div class="row section">
             <h2 class="text-center mb-4">Search Equipment Inventory</h2>
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -150,10 +152,6 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <div class="container">
-
 
         <div class="row">
 
@@ -177,7 +175,7 @@
         </div>
         <br>
 
-        <div class="paginacion">
+        <div class="row">
 
             <?php if ($pagina_actual > 1) : ?>
                 <a href="index.php?p=<?php echo $pagina_actual - 1; ?>"><i class="fa fa-long-arrow-left"></i> Página Anterior</a>
@@ -188,17 +186,12 @@
             <?php endif ?>
 
             <!-- <a href=""><i class="fa fa-long-arrow-left"></i> Página Anterior</a>
-            <a href="">Página Siguiente <i class="fa fa-long-arrow-right"></i> </a> -->
+<a href="">Página Siguiente <i class="fa fa-long-arrow-right"></i> </a> -->
         </div>
 
-    </div>
+        <!-- Contact Section -->
 
-
-
-
-    <!-- Contact Section -->
-    <section class="section bg-light">
-        <div class="container">
+        <div class="row">
             <h2 class="text-center mb-5">Contact Us</h2>
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -266,7 +259,19 @@
                 </div>
             </div>
         </div>
-    </section>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
 
 
 

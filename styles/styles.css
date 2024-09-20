@@ -1,7 +1,24 @@
 body {
     font-family: 'Roboto', sans-serif;
+    color: #ffffff;
 }
-
+.container-fluid{
+    background: #2f2f2f;
+    width: 100%;
+}
+nav{
+    background: #2f2f2f;
+}
+.navbar-toggler{
+    background: #f5333f;
+}
+.navbar-toggler-icon{
+    color: #ffffff;
+    ;
+}
+.nav-link{
+    color: blanchedalmond;
+}
 .hero {
     background: url('https://ervinusa.com/wp-content/uploads/2020/06/ervin-hero.jpg') no-repeat center center;
     background-size: cover;
@@ -18,7 +35,11 @@ body {
 }
 
 .section {
-    padding: 0px 0;
+    padding: 5px 0;
+    margin: 1px;
+    height: 70vh;
+   
+    background: #979797;
 }
 .box{
     display: flex;
