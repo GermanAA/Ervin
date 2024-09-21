@@ -1,0 +1,70 @@
+<?php
+// Conexión a la base de datos
+$host = '107.180.48.193';
+$dbname = 'Ervin';
+$username = 'gz90wnok';
+$password = 'Julio70AK7';
+$pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username , $password);
+
+// Parámetros de búsqueda y paginación
+$query = $_POST['query'] ?? '';
+$condition = $_POST['condition'] ?? '';
+$category = $_POST['category'] ?? '';
+$location = $_POST['location'] ?? '';
+$page = $_POST['page'] ?? 1;
+$items_per_page = 8;
+$offset = ($page - 1) * $items_per_page;
+
+// Construcción de la consulta SQL
+$sql = "SELECT * FROM Inventario WHERE (Condicion LIKE :query OR Fabricante LIKE :query OR Modelo LIKE :query)";
+$params = [':query' => '%' . $query . '%'];
+
+if ($condition !== '') {
+    $sql .= " AND condition = :condition";
+    $params[':condition'] = $condition;
+}
+
+if ($category !== '') {
+    $sql .= " AND category = :category";
+    $params[':category'] = $category;
+}
+
+if ($location !== '') {
+    $sql .= " AND location = :location";
+    $params[':location'] = $location;
+}
+
+$sql .= " LIMIT :offset, :limit";
+$params[':offset'] = $offset;
+$params[':limit'] = $items_per_page;
+
+// Preparar y ejecutar la consulta
+$stmt = $pdo->prepare($sql);
+foreach ($params as $key => $value) {
+    $stmt->bindValue($key, $value, is_int($value) ? PDO::PARAM_INT : PDO::PARAM_STR);
+}
+$stmt->execute();
+$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Obtener el total de productos para calcular las páginas
+$countSql = "SELECT COUNT(*) FROM Inventario WHERE Modelo LIKE :query";
+$countStmt = $pdo->prepare($countSql);
+$countStmt->execute([':query' => '%' . $query . '%']);
+$total_items = $countStmt->fetchColumn();
+$total_pages = ceil($total_items / $items_per_page);
+
+// Formato JSON de respuesta
+$response = [
+    'items' => array_map(function ($item) {
+        return [
+            'name' => $item['Modelo'],
+            'image_url' => 'img/inv/'.$item['Ruta'] // Asume que tienes una columna 'image_url'
+        ];
+    }, $items),
+    'total_pages' => $total_pages,
+    'current_page' => (int) $page
+];
+
+header('Content-Type: application/json');
+echo json_encode($response);
+?>

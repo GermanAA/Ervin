@@ -16,7 +16,7 @@
     <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="img/Logo-Header.png" alt="Logo" width="30" height="50" class="logo d-inline-block align-text-top">
+                <img src="img/Logo-Header.png" alt="Logo" width="30" height="50" class="d-inline-block align-text-top">
 
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -85,7 +85,7 @@
             <h2 class="text-center mb-4">Search Equipment Inventory</h2>
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <form id="searchForm">
+                    <form action="" method="POST">
                         <div class="input-group mb-3">
                             <!-- Search Input -->
                             <input type="text" class="form-control" id="searchQuery" name="query"
@@ -155,14 +155,13 @@
 
         <div class="row">
 
-            <!-- Div para mostrar los resultados de la galería -->
-            <div class="row" id="gallery"></div>
+            <!-- Where results will be displayed -->
+            <div id="searchResults"></div>
 
-            <!-- Div para paginación -->
-            <div class="row" id="pagination"></div>
+
+
         </div>
-
-
+        <br>
 
 
 
@@ -257,7 +256,7 @@
     <footer class="bg-dark text-light text-center p-4">
         <p>&copy; 2024 Ervin USA. All Rights Reserved.</p>
     </footer>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/index.js"></script>
 </body>

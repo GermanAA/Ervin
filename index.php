@@ -1,5 +1,5 @@
 <?php
-require 'funciones.php';
+/*require 'funciones.php';
 $fotos_por_pagina = 8;
 
 $pagina_actual = (isset($_GET['p']) ? (int)$_GET['p'] : 1);
@@ -27,7 +27,7 @@ if(!$fotos){
 $statement = $conexion->prepare("SELECT FOUND_ROWS() as total_filas");
 $statement->execute();
 $total_post= $statement->fetch()['total_filas'];
-$total_paginas =ceil($total_post / $fotos_por_pagina);
+$total_paginas =ceil($total_post / $fotos_por_pagina);*/
 require 'views/index.view.php';
 
 ?>
