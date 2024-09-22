@@ -1,9 +1,9 @@
-document.getElementById('searchForm').addEventListener('submit', function(e) {
+document.getElementById('searchForm').addEventListener('submit', function (e) {
     e.preventDefault(); // Evita que el formulario se envíe de manera tradicional
 
     const formData = new FormData(this);
 
-    fetch('search_inventory2.php', {
+    fetch('php/search_inventory2.php', {
             method: 'POST',
             body: formData
         })
@@ -15,16 +15,20 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
         .catch(error => console.error('Error:', error));
 });
 
+
 function displayGallery(items) {
     const gallery = document.getElementById('gallery');
     gallery.innerHTML = ''; // Limpia la galería anterior
 
     items.forEach(item => {
         const itemDiv = document.createElement('div');
-        itemDiv.classList.add('col-3');
+        itemDiv.classList.add('col-6','col-sm-4','col-md-3');
         itemDiv.innerHTML = `
     <img src="${item.image_url}" alt="${item.name}">
-    <p>${item.name}</p>
+    <p>${item.Condicion}</p>
+    <p>${item.Fabricante}</p>
+    <p>${item.Modelo}</p>
+    <p>${item.Ubicacion}</p>
 `;
         gallery.appendChild(itemDiv);
     });
@@ -49,7 +53,7 @@ function loadPage(page) {
     const formData = new FormData(document.getElementById('searchForm'));
     formData.append('page', page);
 
-    fetch('search_inventory2.php', {
+    fetch('php/search_inventory2.php', {
             method: 'POST',
             body: formData
         })

@@ -82,14 +82,14 @@
         <!-- Search Equipment Inventory Section -->
 
         <div class="row section">
-            <h2 class="text-center mb-4">Search Equipment Inventory</h2>
+            <h2 class="text-center mb-4">Busqueda de Equipo - Inventario</h2>
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <form id="searchForm">
                         <div class="input-group mb-3">
                             <!-- Search Input -->
                             <input type="text" class="form-control" id="searchQuery" name="query"
-                                placeholder="Enter equipment name, model, or keyword" required>
+                                placeholder="Condición, Fabricante, Modelo, Ubicación o keyword">
                             <!-- Search Button -->
                             <button class="btn btn-primary" type="submit">Search</button>
                         </div>
@@ -99,11 +99,11 @@
 
                             <!-- Condition Filter -->
                             <div class="col-md-6">
-                                <label for="condition" class="form-label">Condition</label>
+                                <label for="condition" class="form-label">Condición</label>
                                 <select class="form-select" id="condition" name="condition">
-                                    <option selected value="">All Conditions</option>
-                                    <option value="new">New</option>
-                                    <option value="used">Used</option>
+                                    <option selected value="">Usado o Nuevo</option>
+                                    <option value="Nuevo">Nuevo</option>
+                                    <option value="Usado">Usado</option>
                                 </select>
                             </div>
 
@@ -111,10 +111,10 @@
                             <div class="col-md-6">
                                 <label for="category" class="form-label">Fabricante</label>
                                 <select class="form-select" id="category" name="category">
-                                    <option selected value="">All Categories</option>
-                                    <option value="machinery">Machinery</option>
-                                    <option value="tools">Tools</option>
-                                    <option value="accessories">Accessories</option>
+                                    <option selected value="">Marcas</option>
+                                    <option value="GreatDane">GreatDane</option>
+                                    <option value="Utility">Utility</option>
+                                    <option value="Hiunday">Hiunday</option>
                                     <!-- Add more categories as needed -->
                                 </select>
                             </div>
@@ -122,7 +122,7 @@
                             <div class="col-md-6">
                                 <label for="category" class="form-label">Modelo</label>
                                 <select class="form-select" id="model" name="model">
-                                    <option selected value="">All Categories</option>
+                                    <option selected value="">Año</option>
                                     <option value="machinery">Machinery</option>
                                     <option value="tools">Tools</option>
                                     <option value="accessories">Accessories</option>
@@ -133,9 +133,9 @@
 
                             <!-- Location Filter -->
                             <div class="col-md-6">
-                                <label for="location" class="form-label">Location</label>
+                                <label for="location" class="form-label">Ubicación</label>
                                 <select class="form-select" id="location" name="location">
-                                    <option selected value="">All Locations</option>
+                                    <option selected value="">Ciudad</option>
                                     <option value="warehouse1">Warehouse 1</option>
                                     <option value="warehouse2">Warehouse 2</option>
                                     <option value="warehouse3">Warehouse 3</option>

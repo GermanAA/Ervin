@@ -8,19 +8,25 @@ $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username , $pass
 
 // Parámetros de búsqueda y paginación
 $query = $_POST['query'] ?? '';
+//echo ($query);
+//$query = 2014;
 $condition = $_POST['condition'] ?? '';
+//echo ($condition);
+//$condition = 'Usado';
+//echo($condition);
 $category = $_POST['category'] ?? '';
+$model = $_POST['model'] ?? '';
 $location = $_POST['location'] ?? '';
 $page = $_POST['page'] ?? 1;
 $items_per_page = 8;
 $offset = ($page - 1) * $items_per_page;
 
 // Construcción de la consulta SQL
-$sql = "SELECT * FROM Inventario WHERE (Condicion LIKE :query OR Fabricante LIKE :query OR Modelo LIKE :query)";
+$sql = "SELECT * FROM Inventario WHERE (Condicion LIKE :query OR Fabricante LIKE :query OR Modelo LIKE :query OR Ubicacion LIKE :query)";
 $params = [':query' => '%' . $query . '%'];
 
 if ($condition !== '') {
-    $sql .= " AND condition = :condition";
+    $sql .= " AND Condicion = :condition";
     $params[':condition'] = $condition;
 }
 
@@ -57,7 +63,10 @@ $total_pages = ceil($total_items / $items_per_page);
 $response = [
     'items' => array_map(function ($item) {
         return [
-            'name' => $item['Modelo'],
+            'Condicion' => $item['Condicion'],
+            'Fabricante' => $item['Fabricante'],
+            'Modelo' => $item['Modelo'],
+            'Ubicacion' => $item['Ubicacion'],
             'image_url' => 'img/inv/'.$item['Ruta'] // Asume que tienes una columna 'image_url'
         ];
     }, $items),
