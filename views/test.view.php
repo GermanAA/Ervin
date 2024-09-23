@@ -24,7 +24,7 @@
     <div id="pagination"></div>
 
     <script>
-        document.getElementById('searchForm').addEventListener('submit', function(e) {
+        document.getElementById('searchForm').addEventListener('submit', function (e) {
             e.preventDefault(); // Evita que el formulario se envíe de manera tradicional
 
             const formData = new FormData(this);

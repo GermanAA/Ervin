@@ -14,7 +14,7 @@ $condition = $_POST['condition'] ?? '';
 //echo ($condition);
 //$condition = 'Usado';
 //echo($condition);
-$category = $_POST['category'] ?? '';
+$Fabricante = $_POST['Fabricante'] ?? '';
 $model = $_POST['model'] ?? '';
 $location = $_POST['location'] ?? '';
 $page = $_POST['page'] ?? 1;
@@ -30,14 +30,18 @@ if ($condition !== '') {
     $params[':condition'] = $condition;
 }
 
-if ($category !== '') {
-    $sql .= " AND category = :category";
-    $params[':category'] = $category;
+if ($Fabricante !== '') {
+    $sql .= " AND Fabricante = :Fabricante";
+    $params[':Fabricante'] = $Fabricante;
+}
+if ($model !== '') {
+    $sql .= " AND  Modelo = :Modelo";
+    $params[':Modelo'] = $model;
 }
 
 if ($location !== '') {
-    $sql .= " AND location = :location";
-    $params[':location'] = $location;
+    $sql .= " AND Ubicacion = :Ubicacion";
+    $params[':Ubicacion'] = $location;
 }
 
 $sql .= " LIMIT :offset, :limit";

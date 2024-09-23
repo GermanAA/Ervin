@@ -38,6 +38,16 @@
                         <a class="nav-link" href="#">Contacto</a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="load.php">Carga</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="masiveLoad.php">Masiva</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">Login</a>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -256,7 +266,7 @@
     <footer class="bg-dark text-light text-center p-4">
         <p>&copy; 2024 Ervin USA. All Rights Reserved.</p>
     </footer>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/index.js"></script>
 </body>

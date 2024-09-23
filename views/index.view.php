@@ -38,6 +38,10 @@
                         <a class="nav-link" href="#">Contacto</a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">Login</a>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -104,13 +108,14 @@
                                     <option selected value="">Usado o Nuevo</option>
                                     <option value="Nuevo">Nuevo</option>
                                     <option value="Usado">Usado</option>
+                                    <option value="Usada">Usada</option>
                                 </select>
                             </div>
 
                             <!-- Category Filter -->
                             <div class="col-md-6">
                                 <label for="category" class="form-label">Fabricante</label>
-                                <select class="form-select" id="category" name="category">
+                                <select class="form-select" id="Fabricante" name="Fabricante">
                                     <option selected value="">Marcas</option>
                                     <option value="GreatDane">GreatDane</option>
                                     <option value="Utility">Utility</option>
@@ -123,9 +128,9 @@
                                 <label for="category" class="form-label">Modelo</label>
                                 <select class="form-select" id="model" name="model">
                                     <option selected value="">Año</option>
-                                    <option value="machinery">Machinery</option>
-                                    <option value="tools">Tools</option>
-                                    <option value="accessories">Accessories</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2015">2015</option>
+                     
                                     <!-- Add more categories as needed -->
                                 </select>
                             </div>
@@ -136,9 +141,9 @@
                                 <label for="location" class="form-label">Ubicación</label>
                                 <select class="form-select" id="location" name="location">
                                     <option selected value="">Ciudad</option>
-                                    <option value="warehouse1">Warehouse 1</option>
-                                    <option value="warehouse2">Warehouse 2</option>
-                                    <option value="warehouse3">Warehouse 3</option>
+                                    <option value="Queretaro">Queretaro</option>
+                                    <option value="Cuautitlan">Cuautitlan</option>
+                                  
                                     <!-- Add more locations as needed -->
                                 </select>
                             </div>
