@@ -81,7 +81,8 @@
 
             <h1>Bienvenido a Ervin USA</h1>
             <p>Tenemos los remolques que necesitas</p>
-            <a href="#" class="btn btn-primary mt-3">Learn More</a>
+            
+            <button type="button" class="btn btn-primary">Learn More</button>
 
 
         </div>
@@ -94,7 +95,11 @@
 
             <div class="col-md-6 background-div">
                 <h2>Nosotros</h2>
-                <p>Ervin es una empresa familiar que comenzó como una operación unipersonal y se ha convertido en una próspera empresa internacional de venta de semirremolques y remolques de caja seca. Aunque la empresa ha experimentado un éxito y un crecimiento significativos, Ervin se ha mantenido fiel a los valores fundamentales de nuestro fundador, Greg Ervin. Hemos construido nuestro negocio sobre una base de integridad, calidad, compromiso e innovación. Habiendo comenzado como un distribuidor de equipos usados, Ervin se ha diversificado y ahora es su fuente para todas las cosas de transporte. Venta de Remolques Nuevos, Venta de Remolques Usados, E-Funding, y Logística. Nos convertiremos en su socio durante todo el proceso de adquisición y más allá. Medimos nuestro éxito estrictamente por el suyo.</p>
+                <p>Ervin es una empresa familiar que comenzó como una operación unipersonal y se
+                     ha convertido en una próspera empresa internacional de venta de semirremolques
+                      y remolques de caja seca. Aunque la empresa ha experimentado un éxito y un 
+                      crecimiento significativos, Ervin se ha mantenido fiel a los valores 
+                      fundamentales de nuestro fundador, Greg Ervin. </p>
                 <a href="#" class="btn btn-outline-secondary">Read More</a>
             </div>
         </div>

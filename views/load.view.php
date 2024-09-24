@@ -49,6 +49,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Dashboard</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cerrar.php">Cerrar Sesión</a>
+          </li>
         
 
         </ul>
