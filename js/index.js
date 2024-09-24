@@ -4,9 +4,9 @@ document.getElementById('searchForm').addEventListener('submit', function (e) {
     const formData = new FormData(this);
 
     fetch('php/search_inventory2.php', {
-            method: 'POST',
-            body: formData
-        })
+        method: 'POST',
+        body: formData
+    })
         .then(response => response.json())
         .then(data => {
             displayGallery(data.items);
@@ -22,7 +22,7 @@ function displayGallery(items) {
 
     items.forEach(item => {
         const itemDiv = document.createElement('div');
-        itemDiv.classList.add('col-6','col-sm-4','col-md-3');
+        itemDiv.classList.add('col-6', 'col-sm-4', 'col-md-3');
         itemDiv.innerHTML = `
     <img src="${item.image_url}" alt="${item.name}">
     <p>${item.Condicion}</p>
@@ -54,9 +54,9 @@ function loadPage(page) {
     formData.append('page', page);
 
     fetch('php/search_inventory2.php', {
-            method: 'POST',
-            body: formData
-        })
+        method: 'POST',
+        body: formData
+    })
         .then(response => response.json())
         .then(data => {
             displayGallery(data.items);
@@ -64,3 +64,22 @@ function loadPage(page) {
         })
         .catch(error => console.error('Error:', error));
 }
+
+document.getElementById('ContactForm').addEventListener('submit', function (e) {
+    var phone = document.getElementById('phone').value;
+    var email = document.getElementById('email').value;
+
+    // Validar formato de teléfono (solo números y longitud de 10 dígitos)
+    var phonePattern = /^\d{10}$/;
+    if (!phonePattern.test(phone)) {
+        alert('El número de teléfono debe tener 10 dígitos.');
+        e.preventDefault(); // Evitar que el formulario se envíe
+    }
+
+    // Validar el formato del correo electrónico
+    var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!emailPattern.test(email)) {
+        alert('Por favor ingrese un correo electrónico válido.');
+        e.preventDefault();
+    }
+});

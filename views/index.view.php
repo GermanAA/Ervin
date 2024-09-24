@@ -51,8 +51,26 @@
     <div class="container-fluid text-center">
         <div class="row section">
             <div class="col-md-12">
-                <div class="cycling-banner-background-photo"
-                    style="min-height: 174.9px; background-image: url('https://ervinusa.com/wp-content/uploads/2020/06/ervin-hero.jpg'); background-size: cover; background-position: center;">
+                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img\principal\maxresdefault.jpg" class="d-block mw-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img\principal\stoughton-front.jpg" class="d-block mw-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img\principal\trailers-stoughton.jpg" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -61,24 +79,22 @@
 
             <!-- Hero Section -->
 
-            <h1>Welcome to Ervin USA</h1>
-            <p>Providing the highest quality products for over 100 years</p>
+            <h1>Bienvenido a Ervin USA</h1>
+            <p>Tenemos los remolques que necesitas</p>
             <a href="#" class="btn btn-primary mt-3">Learn More</a>
 
 
         </div>
 
+
+
         <!-- About Section -->
 
         <div class="row section">
-            <div class="col-md-6">
-                <img src="https://ervinusa.com/wp-content/uploads/2020/06/ervin-about.jpg" alt="About Us"
-                    class="img-fluid">
-            </div>
-            <div class="col-md-6">
-                <h2>About Us</h2>
-                <p>Ervin USA is a leader in the metal shot and grit industry. Our focus is on delivering the best
-                    products with superior customer service.</p>
+
+            <div class="col-md-6 background-div">
+                <h2>Nosotros</h2>
+                <p>Ervin es una empresa familiar que comenzó como una operación unipersonal y se ha convertido en una próspera empresa internacional de venta de semirremolques y remolques de caja seca. Aunque la empresa ha experimentado un éxito y un crecimiento significativos, Ervin se ha mantenido fiel a los valores fundamentales de nuestro fundador, Greg Ervin. Hemos construido nuestro negocio sobre una base de integridad, calidad, compromiso e innovación. Habiendo comenzado como un distribuidor de equipos usados, Ervin se ha diversificado y ahora es su fuente para todas las cosas de transporte. Venta de Remolques Nuevos, Venta de Remolques Usados, E-Funding, y Logística. Nos convertiremos en su socio durante todo el proceso de adquisición y más allá. Medimos nuestro éxito estrictamente por el suyo.</p>
                 <a href="#" class="btn btn-outline-secondary">Read More</a>
             </div>
         </div>
@@ -130,7 +146,7 @@
                                     <option selected value="">Año</option>
                                     <option value="2014">2014</option>
                                     <option value="2015">2015</option>
-                     
+
                                     <!-- Add more categories as needed -->
                                 </select>
                             </div>
@@ -143,7 +159,7 @@
                                     <option selected value="">Ciudad</option>
                                     <option value="Queretaro">Queretaro</option>
                                     <option value="Cuautitlan">Cuautitlan</option>
-                                  
+
                                     <!-- Add more locations as needed -->
                                 </select>
                             </div>
@@ -174,28 +190,28 @@
         <!-- Contact Section -->
 
         <div class="row">
-            <h2 class="text-center mb-5">Contact Us</h2>
+            <h2 class="text-center mb-5">Como Podemos Ayudarte</h2>
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <form action="submit_contact.php" method="POST">
+                    <form id="ContactForm" action="submit_contact.php" method="POST">
 
                         <!-- Nombres -->
                         <div class="mb-3">
-                            <label for="nombres" class="form-label">First Name</label>
+                            <label for="nombres" class="form-label">Nombres</label>
                             <input type="text" class="form-control" id="nombres" name="nombres"
                                 placeholder="Enter your first name" required>
                         </div>
 
                         <!-- Apellidos -->
                         <div class="mb-3">
-                            <label for="apellidos" class="form-label">Last Name</label>
+                            <label for="apellidos" class="form-label">Apellidos</label>
                             <input type="text" class="form-control" id="apellidos" name="apellidos"
                                 placeholder="Enter your last name" required>
                         </div>
 
                         <!-- Estado -->
                         <div class="mb-3">
-                            <label for="estado" class="form-label">State</label>
+                            <label for="estado" class="form-label">Estado</label>
                             <select class="form-select" id="estado" name="estado" required>
                                 <option selected disabled>Select your state</option>
                                 <option value="CA">California</option>
@@ -207,28 +223,28 @@
 
                         <!-- Email -->
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email Address</label>
+                            <label for="email" class="form-label">Correo Electrónico</label>
                             <input type="email" class="form-control" id="email" name="email"
                                 placeholder="Enter your email" required>
                         </div>
 
                         <!-- Phone -->
                         <div class="mb-3">
-                            <label for="phone" class="form-label">Phone Number</label>
+                            <label for="phone" class="form-label">Telefono</label>
                             <input type="tel" class="form-control" id="phone" name="phone"
                                 placeholder="Enter your phone number" required>
                         </div>
 
                         <!-- Company -->
                         <div class="mb-3">
-                            <label for="company" class="form-label">Company</label>
+                            <label for="company" class="form-label">Empresa</label>
                             <input type="text" class="form-control" id="company" name="company"
                                 placeholder="Enter your company name">
                         </div>
 
                         <!-- Message -->
                         <div class="mb-3">
-                            <label for="message" class="form-label">Message</label>
+                            <label for="message" class="form-label">Mensaje</label>
                             <textarea class="form-control" id="message" name="message" rows="5"
                                 placeholder="Type your message" required></textarea>
                         </div>
