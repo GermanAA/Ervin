@@ -193,7 +193,7 @@
             <h2 class="text-center mb-5">Como Podemos Ayudarte</h2>
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <form id="ContactForm" action="submit_contact.php" method="POST">
+                    <form id="ContactForm" action="php/submit_contact.php" method="POST">
 
                         <!-- Nombres -->
                         <div class="mb-3">
