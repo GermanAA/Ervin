@@ -1,5 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
+    background: #2f2f2f;
     color: #ffffff;
 }
 .container-fluid{
@@ -70,4 +71,11 @@ img{
 
     
     width: 130px;
+}
+.btn{
+    margin: 10px;
+}
+
+h3{
+    color: #ffffff;
 }

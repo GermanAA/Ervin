@@ -69,10 +69,10 @@
       </h1>
     </header>
 
-    <div class="col-12">
+    <div class="row align-items-center mt-3">
       <form method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
 
-        <div class="col-12">
+        <div class="col-6">
 
           <label for="product">Selecciona una foto del producto</label>
           <input type="file" id="product" name="product">
@@ -81,49 +81,49 @@
         </div>
 
 
-        <div class="col-12">
+        <div class="col-6">
 
           <label for="condicion">Condición</label>
           <input type="text" id="condicion" name="condicion" class="form-control">
 
         </div>
 
-        <div class="col-12">
+        <div class="col-6">
 
           <label for="fabricante">Fabricante</label>
           <input type="text" id="fabricante" name="fabricante" class="form-control">
 
         </div>
 
-        <div class="col-12">
+        <div class="col-6">
 
           <label for="modelo">Modelo</label>
           <input type="text" id="modelo" name="modelo" class="form-control">
 
         </div>
 
-        <div class="col-12">
+        <div class="col-6">
 
           <label for="ubicacion">Ubicación</label>
           <input type="text" id="ubicacion" name="ubicacion" class="form-control">
 
         </div>
 
-        <div class="col-12">
+        <div class="col-6">
 
           <label for="precio">Precio</label>
           <input type="number" id="precio" name="precio" step="any" class="form-control">
 
         </div>
 
-        <div class="col-12">
+        <div class="col-6">
 
           <label for="estatus">Estatus</label>
           <input type="text" id="estatus" name="estatus" class="form-control">
 
         </div>
 
-        <div class="col-12 col-sm-12 col-md-12">
+        <div class="col-6">
           <!-- Fecha-->
           <label for="Fecha">Fecha: </label>
           <input type="date" name="FechaIngreso" id="FechaIngreso" class="form-control" placeholder="Fecha de Consumo" required>
@@ -145,9 +145,9 @@
 
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
-
+  
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+	<!--<script src="js/jquery-3.2.1.min.js"></script>-->
 
 
 
