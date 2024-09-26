@@ -1,11 +1,18 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    
+    font-style: normal;
     background: #2f2f2f;
     color: #ffffff;
 }
 .container-fluid{
     background: #2f2f2f;
     width: 100%;
+}
+
+.navbar-brand{
+    color: #ffffff;
 }
 nav{
     background: #2f2f2f;
@@ -59,7 +66,7 @@ nav{
 .section {
     padding: 5px 0;
     margin: 1px;
-    height: 450px;
+    height: 480px;
    
     /*background: #979797;*/
 }
@@ -69,7 +76,7 @@ nav{
 }
 img{
 
-    
+    border-radius: 6px;
     width: 130px;
 }
 .btn{
