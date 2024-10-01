@@ -8,86 +8,49 @@
 </head>
 
 <body>
-
-    <form id="searchForm">
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" id="searchQuery" name="query" placeholder="Enter equipment name, model, or keyword" required>
-            <button class="btn btn-primary" type="submit">Search</button>
-        </div>
-        <!-- Otros filtros aquí -->
-    </form>
-
-    <!-- Div para mostrar los resultados de la galería -->
-    <div id="gallery"></div>
-
-    <!-- Div para paginación -->
-    <div id="pagination"></div>
+<h2>Convertir imagen JPG a WebP</h2>
+    <input type="file" id="upload" accept="image/jpeg" />
+    <br><br>
+    <canvas id="canvas" style="display:none;"></canvas>
+    <br>
+    <a id="download" download="imagen-convertida.webp">Descargar WebP</a>
 
     <script>
-        document.getElementById('searchForm').addEventListener('submit', function (e) {
-            e.preventDefault(); // Evita que el formulario se envíe de manera tradicional
+        document.getElementById('upload').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file && file.type === 'image/jpeg') {
+                const reader = new FileReader();
 
-            const formData = new FormData(this);
+                reader.onload = function (event) {
+                    const img = new Image();
+                    img.onload = function () {
+                        const canvas = document.getElementById('canvas');
+                        const ctx = canvas.getContext('2d');
+                        
+                        // Ajustar el tamaño del canvas al de la imagen
+                        canvas.width = img.width;
+                        canvas.height = img.height;
 
-            fetch('search_inventory2.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    displayGallery(data.items);
-                    setupPagination(data.total_pages, data.current_page);
-                })
-                .catch(error => console.error('Error:', error));
-        });
+                        // Dibujar la imagen en el canvas
+                        ctx.drawImage(img, 0, 0);
 
-        function displayGallery(items) {
-            const gallery = document.getElementById('gallery');
-            gallery.innerHTML = ''; // Limpia la galería anterior
+                        // Convertir la imagen del canvas a WebP
+                        const webpImage = canvas.toDataURL('image/webp');
 
-            items.forEach(item => {
-                const itemDiv = document.createElement('div');
-                itemDiv.classList.add('gallery-item');
-                itemDiv.innerHTML = `
-            <img src="${item.image_url}" alt="${item.name}">
-            <p>${item.name}</p>
-        `;
-                gallery.appendChild(itemDiv);
-            });
-        }
+                        // Crear un enlace de descarga para la imagen WebP
+                        const downloadLink = document.getElementById('download');
+                        downloadLink.href = webpImage;
+                    };
 
-        function setupPagination(totalPages, currentPage) {
-            const pagination = document.getElementById('pagination');
-            pagination.innerHTML = ''; // Limpia la paginación anterior
+                    img.src = event.target.result; // Cargar la imagen desde el archivo
+                };
 
-            for (let i = 1; i <= totalPages; i++) {
-                const pageBtn = document.createElement('button');
-                pageBtn.textContent = i;
-                if (i === currentPage) {
-                    pageBtn.disabled = true;
-                }
-                pageBtn.addEventListener('click', () => loadPage(i));
-                pagination.appendChild(pageBtn);
+                reader.readAsDataURL(file); // Leer el archivo como una URL base64
+            } else {
+                alert('Por favor, selecciona una imagen JPG.');
             }
-        }
-
-        function loadPage(page) {
-            const formData = new FormData(document.getElementById('searchForm'));
-            formData.append('page', page);
-
-            fetch('search_inventory.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    displayGallery(data.items);
-                    setupPagination(data.total_pages, data.current_page);
-                })
-                .catch(error => console.error('Error:', error));
-        }
+        });
     </script>
-
 
 </body>
 

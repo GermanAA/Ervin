@@ -18,7 +18,7 @@ $Fabricante = $_POST['Fabricante'] ?? '';
 $model = $_POST['model'] ?? '';
 $location = $_POST['location'] ?? '';
 $page = $_POST['page'] ?? 1;
-$items_per_page = 8;
+$items_per_page = 4;
 $offset = ($page - 1) * $items_per_page;
 
 // Construcción de la consulta SQL

@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function() {
 document.getElementById('searchForm').addEventListener('submit', function (e) {
     e.preventDefault(); // Evita que el formulario se envíe de manera tradicional
 
@@ -14,7 +15,7 @@ document.getElementById('searchForm').addEventListener('submit', function (e) {
         })
         .catch(error => console.error('Error:', error));
 });
-
+});
 
 function displayGallery(items) {
     const gallery = document.getElementById('gallery');
@@ -34,20 +35,86 @@ function displayGallery(items) {
     });
 }
 
+// function setupPagination(totalPages, currentPage) {
+//     const pagination = document.getElementById('pagination');
+//     pagination.innerHTML = ''; // Limpia la paginación anterior
+
+//     for (let i = 1; i <= totalPages; i++) {
+//         const pageBtn = document.createElement('li');
+//         pageBtn.textContent = i;
+//         if (i === currentPage) {
+//             pageBtn.disabled = true;
+//         }
+//         pageBtn.addEventListener('click', () => loadPage(i));
+//         pagination.appendChild(pageBtn);
+//     }
+// }
+
 function setupPagination(totalPages, currentPage) {
     const pagination = document.getElementById('pagination');
-    pagination.innerHTML = ''; // Limpia la paginación anterior
+    pagination.innerHTML = ''; // Clear previous pagination
 
-    for (let i = 1; i <= totalPages; i++) {
-        const pageBtn = document.createElement('button');
-        pageBtn.textContent = i;
-        if (i === currentPage) {
-            pageBtn.disabled = true;
-        }
-        pageBtn.addEventListener('click', () => loadPage(i));
-        pagination.appendChild(pageBtn);
+    // Create Previous button
+    const prevBtn = document.createElement('li');
+    prevBtn.classList.add('page-item'); // Add the 'page-item' class to follow Bootstrap style
+    if (currentPage === 1) {
+        prevBtn.classList.add('disabled'); // Disable if on the first page
     }
+    const prevLink = document.createElement('a');
+    prevLink.classList.add('page-link');
+    prevLink.href = '#';
+    prevLink.textContent = 'Previous';
+    prevLink.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent the default action
+        if (currentPage > 1) {
+            loadPage(currentPage - 1);
+        }
+    });
+    prevBtn.appendChild(prevLink);
+    pagination.appendChild(prevBtn);
+
+    // Create page number buttons
+    for (let i = 1; i <= totalPages; i++) {
+        const pageBtn = document.createElement('li');
+        pageBtn.classList.add('page-item'); // Add the 'page-item' class
+        if (i === currentPage) {
+            pageBtn.classList.add('active'); // Highlight the current page
+        }
+        
+        const pageLink = document.createElement('a');
+        pageLink.classList.add('page-link');
+        pageLink.href = '#';
+        pageLink.textContent = i;
+        
+        pageLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default page jump
+            loadPage(i);
+        });
+        
+        pageBtn.appendChild(pageLink); // Append the link to the list item
+        pagination.appendChild(pageBtn); // Append the list item to the pagination
+    }
+
+    // Create Next button
+    const nextBtn = document.createElement('li');
+    nextBtn.classList.add('page-item'); // Add the 'page-item' class
+    if (currentPage === totalPages) {
+        nextBtn.classList.add('disabled'); // Disable if on the last page
+    }
+    const nextLink = document.createElement('a');
+    nextLink.classList.add('page-link');
+    nextLink.href = '#';
+    nextLink.textContent = 'Next';
+    nextLink.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent the default action
+        if (currentPage < totalPages) {
+            loadPage(currentPage + 1);
+        }
+    });
+    nextBtn.appendChild(nextLink);
+    pagination.appendChild(nextBtn);
 }
+
 
 function loadPage(page) {
     const formData = new FormData(document.getElementById('searchForm'));
@@ -83,3 +150,4 @@ document.getElementById('ContactForm').addEventListener('submit', function (e) {
         e.preventDefault();
     }
 });
+

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ervin USA Replica</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
 
 </head>
@@ -16,8 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="img/Logo-Header.png" alt="Logo" width="30" height="50" class="logo d-inline-block align-text-top">
-
+                TractoElite
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,7 +81,7 @@
 
             <h1>Bienvenido a Ervin USA</h1>
             <p>Tenemos los remolques que necesitas</p>
-            
+
             <button type="button" class="btn btn-primary">Learn More</button>
 
 
@@ -96,10 +96,10 @@
             <div class="col-md-6 background-div">
                 <h2>Nosotros</h2>
                 <p>Ervin es una empresa familiar que comenzó como una operación unipersonal y se
-                     ha convertido en una próspera empresa internacional de venta de semirremolques
-                      y remolques de caja seca. Aunque la empresa ha experimentado un éxito y un 
-                      crecimiento significativos, Ervin se ha mantenido fiel a los valores 
-                      fundamentales de nuestro fundador, Greg Ervin. </p>
+                    ha convertido en una próspera empresa internacional de venta de semirremolques
+                    y remolques de caja seca. Aunque la empresa ha experimentado un éxito y un
+                    crecimiento significativos, Ervin se ha mantenido fiel a los valores
+                    fundamentales de nuestro fundador, Greg Ervin. </p>
                 <a href="#" class="btn btn-outline-secondary">Read More</a>
             </div>
         </div>
@@ -185,7 +185,16 @@
             <div class="row" id="gallery"></div>
 
             <!-- Div para paginación -->
-            <div class="row" id="pagination"></div>
+            <div class="row" >
+
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center" id="pagination" >
+ 
+                        </ul>
+
+                    </nav>
+
+            </div>
         </div>
 
 
