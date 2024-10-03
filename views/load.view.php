@@ -15,123 +15,102 @@
 
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light ">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="img/Logo-Header.png" alt="Logo" width="30" height="50" class="d-inline-block align-text-top">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          TractoElite
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Inventario</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contacto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="load.php">Carga</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="masiveLoad.php">Masiva</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cerrar.php">Cerrar Sesión</a>
+            </li>
 
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Nosotros</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Inventario</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="load.php">Carga</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="masiveLoad.php">Masiva</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="cerrar.php">Cerrar Sesión</a>
-          </li>
-        
 
-        </ul>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+
+
 
   <div class="container-fluid">
 
 
 
-    <header>
-      <h1>
-        Cargar Información
-      </h1>
-    </header>
-
-    <div class="row align-items-center mt-3">
-      <form method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-
-        <div class="col-6">
-
-          <label for="product">Selecciona una foto del producto</label>
-          <input type="file" id="product" name="product">
-
-
+    <div class="container mt-5">
+      <h1 class="mb-4">Formulario de Producto</h1>
+      <form id="myForm" class="row g-3">
+        <div class="col-md-6">
+          <label for="product" class="form-label">Selecciona una foto del producto</label>
+          <input type="file" id="product" name="product" accept="image/*" class="form-control">
         </div>
 
-
-        <div class="col-6">
-
-          <label for="condicion">Condición</label>
-          <input type="text" id="condicion" name="condicion" class="form-control">
-
+        <!-- Otros campos del formulario -->
+        <div class="col-md-6">
+          <label for="condicion" class="form-label">Condición</label>
+          <input type="text" id="condicion" name="condicion" class="form-control" placeholder="Condición" required>
         </div>
 
-        <div class="col-6">
-
-          <label for="fabricante">Fabricante</label>
-          <input type="text" id="fabricante" name="fabricante" class="form-control">
-
+        <div class="col-md-6">
+          <label for="fabricante" class="form-label">Fabricante</label>
+          <input type="text" id="fabricante" name="fabricante" class="form-control" placeholder="Fabricante" required>
         </div>
 
-        <div class="col-6">
-
-          <label for="modelo">Modelo</label>
-          <input type="text" id="modelo" name="modelo" class="form-control">
-
+        <div class="col-md-6">
+          <label for="modelo" class="form-label">Modelo</label>
+          <input type="text" id="modelo" name="modelo" class="form-control" placeholder="Modelo" required>
         </div>
 
-        <div class="col-6">
-
-          <label for="ubicacion">Ubicación</label>
-          <input type="text" id="ubicacion" name="ubicacion" class="form-control">
-
+        <div class="col-md-6">
+          <label for="ubicacion" class="form-label">Ubicación</label>
+          <input type="text" id="ubicacion" name="ubicacion" class="form-control" placeholder="Ubicación" required>
         </div>
 
-        <div class="col-6">
-
-          <label for="precio">Precio</label>
-          <input type="number" id="precio" name="precio" step="any" class="form-control">
-
+        <div class="col-md-6">
+          <label for="precio" class="form-label">Precio</label>
+          <input type="number" id="precio" name="precio" class="form-control" placeholder="Precio" required>
         </div>
 
-        <div class="col-6">
-
-          <label for="estatus">Estatus</label>
-          <input type="text" id="estatus" name="estatus" class="form-control">
-
+        <div class="col-md-6">
+          <label for="estatus" class="form-label">Estatus</label>
+          <input type="text" id="estatus" name="estatus" class="form-control" placeholder="Estatus" required>
         </div>
 
-        <div class="col-6">
-          <!-- Fecha-->
-          <label for="Fecha">Fecha: </label>
-          <input type="date" name="FechaIngreso" id="FechaIngreso" class="form-control" placeholder="Fecha de Consumo" required>
+        <div class="col-md-6">
+          <label for="FechaIngreso" class="form-label">Fecha de Ingreso</label>
+          <input type="date" id="FechaIngreso" name="FechaIngreso" class="form-control" required>
         </div>
 
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
       </form>
     </div>
 
@@ -145,9 +124,10 @@
 
 
 
-  
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-	<!--<script src="js/jquery-3.2.1.min.js"></script>-->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/load.js"></script>
+  <!--<script src="js/jquery-3.2.1.min.js"></script>-->
 
 
 
