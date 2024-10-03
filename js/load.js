@@ -13,10 +13,12 @@ function handleFileUpload(event) {
             canvas.height = img.height;
             const ctx = canvas.getContext('2d');
             ctx.drawImage(img, 0, 0);
+
+            // Comprimir la imagen y convertirla a WebP
             canvas.toBlob(function (blob) {
-                const newFile = new File([blob], originalFileName + '.webp', { type: 'image/webp' }); // Añadir la extensión .webp
+                const newFile = new File([blob], originalFileName + '.webp', { type: 'image/webp' });
                 uploadFile(newFile);
-            }, 'image/webp');
+            }, 'image/webp', 0.6); // Comprimir a calidad 0.7
         };
     };
 
@@ -25,7 +27,7 @@ function handleFileUpload(event) {
 
 function uploadFile(file) {
     const formData = new FormData();
-    formData.append('product', file); // Subimos el archivo convertido a WebP
+    formData.append('product', file); // Subimos el archivo comprimido y convertido a WebP
     // Agregar otros campos del formulario aquí
     formData.append('condicion', document.getElementById('condicion').value);
     formData.append('fabricante', document.getElementById('fabricante').value);
@@ -43,9 +45,8 @@ function uploadFile(file) {
     .then(data => {
         console.log(data);
         alert('Imagen y datos enviados correctamente');
-         // Limpiar el formulario
-         document.getElementById('myForm').reset(); // Limpia todos los campos del formulario
-        
+        // Limpiar el formulario
+        document.getElementById('myForm').reset(); // Limpia todos los campos del formulario
     })
     .catch(error => {
         console.error('Error:', error);
