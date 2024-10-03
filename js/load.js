@@ -43,6 +43,9 @@ function uploadFile(file) {
     .then(data => {
         console.log(data);
         alert('Imagen y datos enviados correctamente');
+         // Limpiar el formulario
+         document.getElementById('myForm').reset(); // Limpia todos los campos del formulario
+        
     })
     .catch(error => {
         console.error('Error:', error);
