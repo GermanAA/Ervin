@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="fontello-a540fdbf\css\fontello.css">
 
 </head>
 
@@ -95,11 +96,11 @@
 
             <div class="col-md-6 background-div" id="Nosotros">
                 <h2>Nosotros</h2>
-                <p>Ervin es una empresa familiar que comenzó como una operación unipersonal y se
+                <p>TractoElite es una empresa familiar que comenzó como una operación unipersonal y se
                     ha convertido en una próspera empresa internacional de venta de semirremolques
                     y remolques de caja seca. Aunque la empresa ha experimentado un éxito y un
-                    crecimiento significativos, Ervin se ha mantenido fiel a los valores
-                    fundamentales de nuestro fundador, Greg Ervin. </p>
+                    crecimiento significativos, TractoElite se ha mantenido fiel a los valores
+                    fundamentales de nuestro fundador. </p>
                 <a href="#" class="btn btn-outline-secondary">Read More</a>
             </div>
         </div>
@@ -185,21 +186,23 @@
             <div class="row" id="gallery"></div>
 
             <!-- Div para paginación -->
-            <div class="row" >
+            <div class="row">
 
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center" id="pagination" >
- 
-                        </ul>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center" id="pagination">
 
-                    </nav>
+                    </ul>
+
+                </nav>
 
             </div>
         </div>
 
 
 
-
+        <a class="btn-wsp" target="_blank" href="https://wa.me/525522619648?text=Buen%20día...">
+            <i class="icon-whatsapp"></i>
+        </a>
 
         <!-- Contact Section -->
 
@@ -290,7 +293,7 @@
 
     <!-- Footer -->
     <footer class="bg-dark text-light text-center p-4">
-        <p>&copy; 2024 Ervin USA. All Rights Reserved.</p>
+        <p>&copy; 2024 TractoElite. All Rights Reserved.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
