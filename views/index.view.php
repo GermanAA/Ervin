@@ -26,16 +26,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Inicio</a>
+                        <a class="nav-link" aria-current="page" href="#Inicio">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Nosotros</a>
+                        <a class="nav-link" href="#Nosotros">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Inventario</a>
+                        <a class="nav-link" href="#Inventario">Inventario</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
+                        <a class="nav-link" href="#Contacto">Contacto</a>
                     </li>
 
                     <li class="nav-item">
@@ -49,7 +49,7 @@
 
 
     <div class="container-fluid text-center">
-        <div class="row section">
+        <div class="row section" id="Inicio">
             <div class="col-md-12">
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
@@ -79,7 +79,7 @@
 
             <!-- Hero Section -->
 
-            <h1>Bienvenido a Ervin USA</h1>
+            <h1>Bienvenido a TractoElite</h1>
             <p>Tenemos los remolques que necesitas</p>
 
             <button type="button" class="btn btn-primary">Learn More</button>
@@ -93,7 +93,7 @@
 
         <div class="row section">
 
-            <div class="col-md-6 background-div">
+            <div class="col-md-6 background-div" id="Nosotros">
                 <h2>Nosotros</h2>
                 <p>Ervin es una empresa familiar que comenzó como una operación unipersonal y se
                     ha convertido en una próspera empresa internacional de venta de semirremolques
@@ -106,7 +106,7 @@
 
         <!-- Search Equipment Inventory Section -->
 
-        <div class="row section">
+        <div class="row section" id="Inventario">
             <h2 class="text-center mb-4">Busqueda de Equipo - Inventario</h2>
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -203,7 +203,7 @@
 
         <!-- Contact Section -->
 
-        <div class="row">
+        <div class="row" id="Contacto">
             <h2 class="text-center mb-5">Como Podemos Ayudarte</h2>
             <div class="row justify-content-center">
                 <div class="col-md-8">

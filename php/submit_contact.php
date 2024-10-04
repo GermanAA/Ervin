@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = htmlspecialchars($_POST['message']);
 
     // Definir el destinatario
-    $to = "ventas@ga-technology-services.com"; // Cambia esto por tu dirección de correo
+    $to = "armendariz.german@gmail.com"; // Cambia esto por tu dirección de correo
 
     // Asunto del correo
     $subject = "Nuevo mensaje de contacto de $nombres $apellidos";

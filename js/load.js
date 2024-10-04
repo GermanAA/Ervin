@@ -18,7 +18,7 @@ function handleFileUpload(event) {
             canvas.toBlob(function (blob) {
                 const newFile = new File([blob], originalFileName + '.webp', { type: 'image/webp' });
                 uploadFile(newFile);
-            }, 'image/webp', 0.3); // Comprimir a calidad 0.7
+            }, 'image/webp', 0.15); // Comprimir a calidad 0.7
         };
     };
 
