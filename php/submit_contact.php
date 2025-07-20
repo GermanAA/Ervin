@@ -39,12 +39,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Configuración del servidor SMTP
         $mail->isSMTP();
-        $mail->Host = 'mail.german-webmaster.com'; // Cambiar a tu servidor SMTP
+        $mail->Host = 'smtp.office365.com'; // Cambiar a tu servidor SMTP
         $mail->SMTPAuth = true;
-        $mail->Username = 'armendarizgerman@german-webmaster.com';
-        $mail->Password = 'AiNZKN9TWgNL';
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Usar SMTPS para SSL
-        $mail->Port = 465; // Usar 465 para SSL o 587 para TLS
+        $mail->Username = 'ventas@ga-technology-services.com';
+        $mail->Password = 'sPy$q2P!rm7ev3w';
+        $mail->SMTPSecure = 'tls'; // Usar SMTPS para SSL
+        $mail->Port = 587; // Usar 465 para SSL o 587 para TLS
 
         // Remitente y destinatario
         $mail->setFrom('armendarizgerman@german-webmaster.com', 'Germán');
