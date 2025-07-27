@@ -48,15 +48,6 @@ nav{
     background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
-.hero {
-    background: url('https://ervinusa.com/wp-content/uploads/2020/06/ervin-hero.jpg') no-repeat center center;
-    background-size: cover;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgb(0, 0, 0);
-}
 
 .hero h1 {
     font-size: 3.5rem;

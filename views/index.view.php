@@ -43,6 +43,10 @@
                         <a class="nav-link" href="login.php">Login</a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="privacy-policy.php">Aviso de Privacidad</a>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -90,24 +94,10 @@
 
 
 
-        <!-- About Section -->
-
-        <div class="row section">
-
-            <div class="col-md-6 background-div" id="Nosotros">
-                <h2>Nosotros</h2>
-                <p>TractoElite es una empresa familiar que comenzó como una operación unipersonal y se
-                    ha convertido en una próspera empresa internacional de venta de semirremolques
-                    y remolques de caja seca. Aunque la empresa ha experimentado un éxito y un
-                    crecimiento significativos, TractoElite se ha mantenido fiel a los valores
-                    fundamentales de nuestro fundador. </p>
-                <a href="#" class="btn btn-outline-secondary">Read More</a>
-            </div>
-        </div>
 
         <!-- Search Equipment Inventory Section -->
 
-        <div class="row section" id="Inventario">
+        <div class="row " id="Inventario">
             <h2 class="text-center mb-4">Busqueda de Equipo - Inventario</h2>
             <div class="row justify-content-center">
                 <div class="col-md-8">
