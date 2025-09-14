@@ -6,6 +6,18 @@ body {
     background: #2f2f2f;
     color: #ffffff;
 }
+
+.carousel-item img {
+    /* 1. Haz que la imagen ocupe todo el contenedor */
+    width: 100%;
+    /*height: 25%;
+    
+    /* 2. Evita que la imagen se deforme (la recorta si es necesario) */
+    object-fit: cover;
+    
+    /* 3. Redondea las esquinas */
+    border-radius: 15px; /* Puedes ajustar este valor */
+}
 .container-fluid{
     background: #2f2f2f;
     width: 100%;
@@ -33,11 +45,7 @@ nav{
     overflow: hidden;
 }
 
-.d-block img{
-    width: 70%;
-    height: 100%;
-    object-fit: cover; /* Hace que la imagen cubra todo el contenedor */
-}
+
 
 .background-div {
     width: 100%;
