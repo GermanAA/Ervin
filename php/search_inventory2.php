@@ -71,7 +71,7 @@ $response = [
             'Fabricante' => $item['Fabricante'],
             'Modelo' => $item['Modelo'],
             'Ubicacion' => $item['Ubicacion'],
-            'image_url' => 'img/inv/'.$item['Ruta'] // Asume que tienes una columna 'image_url'
+            'image_url' => "img/inv/{$item['Ruta']}"
         ];
     }, $items),
     'total_pages' => $total_pages,
