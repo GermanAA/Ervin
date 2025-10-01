@@ -1,9 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
-document.getElementById('searchForm').addEventListener('submit', function (e) {
-    e.preventDefault(); // Evita que el formulario se envíe de manera tradicional
+// 1. Define la función que hace la petición y muestra los resultados.
+function fetchInventory() {
+    // Obtiene el formulario.
+    const form = document.getElementById('searchForm');
+    // Crea el objeto FormData a partir del estado actual del formulario.
+    const formData = new FormData(form);
 
-    const formData = new FormData(this);
-
+    // Realiza la petición fetch (esta lógica es la misma que ya tenías).
     fetch('php/search_inventory2.php', {
         method: 'POST',
         body: formData
@@ -14,7 +16,18 @@ document.getElementById('searchForm').addEventListener('submit', function (e) {
             setupPagination(data.total_pages, data.current_page);
         })
         .catch(error => console.error('Error:', error));
+}
+
+// 2. Agrega el "listener" para el evento 'submit' del formulario.
+document.getElementById('searchForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // Evita la recarga de la página.
+    fetchInventory();   // Llama a la función para buscar y mostrar.
 });
+
+// 3. Agrega el "listener" para el evento 'DOMContentLoaded'.
+// Este evento se dispara cuando el HTML inicial de la página se ha cargado por completo.
+document.addEventListener('DOMContentLoaded', function () {
+    fetchInventory(); // Llama a la función para la carga inicial.
 });
 
 function displayGallery(items) {
@@ -29,6 +42,7 @@ function displayGallery(items) {
     <p>${item.Condicion}</p>
     <p>${item.Fabricante}</p>
     <p>${item.Modelo}</p>
+    <p>${item.Estatus}</p>
     <p>${item.Ubicacion}</p>
 `;
         gallery.appendChild(itemDiv);

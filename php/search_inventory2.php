@@ -71,6 +71,7 @@ $response = [
             'Fabricante' => $item['Fabricante'],
             'Modelo' => $item['Modelo'],
             'Ubicacion' => $item['Ubicacion'],
+            'Estatus' => $item['Estatus'],
             'image_url' => "img/principal/{$item['Ruta']}"
         ];
     }, $items),

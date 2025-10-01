@@ -120,7 +120,7 @@
                                     <option selected value="">Usado o Nuevo</option>
                                     <option value="Nuevo">Nuevo</option>
                                     <option value="Usado">Usado</option>
-                                    <option value="Usada">Usada</option>
+                                 
                                 </select>
                             </div>
 
@@ -131,7 +131,7 @@
                                     <option selected value="">Marcas</option>
                                     <option value="GreatDane">GreatDane</option>
                                     <option value="Utility">Utility</option>
-                                    <option value="Hiunday">Hiunday</option>
+                                    <option value="Wabash">Wabash</option>
                                     <!-- Add more categories as needed -->
                                 </select>
                             </div>
@@ -140,8 +140,12 @@
                                 <label for="category" class="form-label">Modelo</label>
                                 <select class="form-select" id="model" name="model">
                                     <option selected value="">Año</option>
-                                    <option value="2014">2014</option>
-                                    <option value="2015">2015</option>
+                                    <option value="2015">2006</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2015">2008</option>
+                                    <option value="2015">2009</option>
+                                    <option value="2015">2010</option>
+                                    <option value="2015">2011</option>
 
                                     <!-- Add more categories as needed -->
                                 </select>
@@ -154,7 +158,7 @@
                                 <select class="form-select" id="location" name="location">
                                     <option selected value="">Ciudad</option>
                                     <option value="Queretaro">Queretaro</option>
-                                    <option value="Cuautitlan">Cuautitlan</option>
+                                    <option value="Tlalnepantla">Tlalnepantla</option>
 
                                     <!-- Add more locations as needed -->
                                 </select>
