@@ -59,14 +59,9 @@
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="img\principal\2.svg" class="d-block" alt="...">
+                            <img src="img\principal\JumbotronTracto.webp" class="d-block" alt="...">
                         </div>
-                        <div class="carousel-item">
-                            <img src="img\principal\3.svg" class="d-block" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img\principal\4.svg" class="d-block" alt="...">
-                        </div>
+                        
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
