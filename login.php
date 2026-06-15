@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if ($resultado !== false) {
     $_SESSION['usuario_id'] = $resultado['Id']; // Revisa que 'Id' sea exactamente como se llama la columna en tu tabla 'usuarios'
     $_SESSION['usuario'] = $usuario;
-    header('Location: ' . BASE_URL . 'inventario.php'); // O load.php, la ruta a la que quieras ir
+    header('Location: ' . BASE_URL . 'paginaprincipal.php'); // O load.php, la ruta a la que quieras ir
     exit();
 
 	} else {
