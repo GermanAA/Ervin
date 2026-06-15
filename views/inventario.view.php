@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Inventario</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-</head>
-<body class="bg-light">
+<?php require 'templates/header.php'; ?>
 
-<div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Inventario de Equipos</h2>
         <button class="btn btn-primary" onclick="abrirModal()">+ Nuevo Equipo</button>
@@ -94,14 +84,44 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    const modalBootstrap = new bootstrap.Modal(document.getElementById('inventarioModal'));
-    const form = document.getElementById('inventarioForm');
 
-    // Cargar datos al iniciar
-    document.addEventListener('DOMContentLoaded', cargarDatos);
+<script>
+    // 1. Declaramos las variables globales primero, pero las dejamos vacías
+    let modalBootstrap;
+    let form;
+
+    // 2. Esperamos a que TODA la página (incluyendo el footer con Bootstrap) termine de cargar
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // Ahora sí, inicializamos las variables
+        modalBootstrap = new bootstrap.Modal(document.getElementById('inventarioModal'));
+        form = document.getElementById('inventarioForm');
+        
+        // Cargamos los datos de la tabla
+        cargarDatos();
+
+        // 3. Movemos el eventListener del formulario AQUÍ ADENTRO, porque ahora 'form' ya existe
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            let datos = new FormData(form);
+
+            fetch('api_inventario.php', { method: 'POST', body: datos })
+                .then(res => res.json())
+                .then(response => {
+                    if(response.status === 'success') {
+                        modalBootstrap.hide();
+                        Swal.fire('¡Éxito!', response.message, 'success');
+                        cargarDatos();
+                    } else {
+                        Swal.fire('Error', response.message, 'error');
+                    }
+                });
+        });
+    });
+
+    // =========================================================
+    // Funciones que se ejecutan POR CLIC (No necesitan esperar)
+    // =========================================================
 
     function cargarDatos() {
         let formData = new FormData();
@@ -158,24 +178,6 @@
         modalBootstrap.show();
     }
 
-    // Submit del formulario (Crear o Actualizar)
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        let datos = new FormData(form);
-
-        fetch('api_inventario.php', { method: 'POST', body: datos })
-            .then(res => res.json())
-            .then(response => {
-                if(response.status === 'success') {
-                    modalBootstrap.hide();
-                    Swal.fire('¡Éxito!', response.message, 'success');
-                    cargarDatos();
-                } else {
-                    Swal.fire('Error', response.message, 'error');
-                }
-            });
-    });
-
     function eliminarRegistro(id) {
         Swal.fire({
             title: '¿Estás seguro?',
@@ -206,5 +208,4 @@
         })
     }
 </script>
-</body>
-</html>
+<?php require 'templates/footer.php'; ?>
