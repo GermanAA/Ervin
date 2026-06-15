@@ -6,7 +6,7 @@ require_once 'init.php';
 
 // 2. Si el usuario ya está logueado, lo mandamos al sistema
 if (isset($_SESSION['usuario'])) {
-	header('Location: ' . BASE_URL . 'load.php');
+	header('Location: ' . BASE_URL . 'paginaprincipal.php');
     exit();
 }
 
