@@ -1,7 +1,13 @@
-<?php session_start();
+<?php 
 
+
+// 1. Cargamos el init.php ANTES de hacer cualquier otra cosa
+require_once 'init.php'; 
+
+// 2. Si el usuario ya está logueado, lo mandamos al sistema
 if (isset($_SESSION['usuario'])) {
-	header('Location: load.php');
+	header('Location: ' . BASE_URL . 'load.php');
+    exit();
 }
 
 $errores = '';
@@ -28,8 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$resultado = $statement->fetch();
 	if ($resultado !== false) {
-		$_SESSION['usuario'] = $usuario;
-		header('Location: load.php');
+    $_SESSION['usuario_id'] = $resultado['Id']; // Revisa que 'Id' sea exactamente como se llama la columna en tu tabla 'usuarios'
+    $_SESSION['usuario'] = $usuario;
+    header('Location: ' . BASE_URL . 'inventario.php'); // O load.php, la ruta a la que quieras ir
+    exit();
+
 	} else {
 		$errores .= '<li>Datos Incorrectos</li>';
 	}

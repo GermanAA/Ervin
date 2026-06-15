@@ -1,12 +1,11 @@
-<?php session_start();
+<?php 
+
+
+// 1. Cargamos el guardián
+require_once 'init.php'; 
+
+// 2. Le decimos al navegador que vamos a devolver datos en formato JSON
 header('Content-Type: application/json');
-
-if (!isset($_SESSION['usuario'])) {
-    echo json_encode(['status' => 'error', 'message' => 'Sesión no válida']);
-    exit();
-}
-
-require("conexion.php"); // Asumo que aquí instancias $conexion con PDO
 
 // Recibimos la acción a realizar
 $action = isset($_POST['action']) ? $_POST['action'] : '';

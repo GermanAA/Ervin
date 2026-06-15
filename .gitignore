@@ -1,3 +1,4 @@
 img/
 # Ignorar archivos de entorno con información sensible
 .env
+vendor/
