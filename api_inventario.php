@@ -12,11 +12,20 @@ $action = isset($_POST['action']) ? $_POST['action'] : '';
 
 try {
     switch ($action) {
-        case 'read':
+case 'read':
             $statement = $conexion->prepare("SELECT * FROM Inventario ORDER BY Id DESC");
             $statement->execute();
             $data = $statement->fetchAll(PDO::FETCH_ASSOC);
-            echo json_encode(['status' => 'success', 'data' => $data]);
+            
+            // Intentamos convertir a JSON
+            $json = json_encode(['status' => 'success', 'data' => $data]);
+            
+            // Si falla por caracteres extraños, enviamos un error legible en lugar de una pantalla blanca
+            if ($json === false) {
+                echo json_encode(['status' => 'error', 'message' => 'Error convirtiendo datos: ' . json_last_error_msg()]);
+            } else {
+                echo $json;
+            }
             break;
 
         case 'create':
