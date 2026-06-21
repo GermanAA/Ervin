@@ -23,7 +23,7 @@ if (in_array($action, $acciones_privadas)) {
 try {
     switch ($action) {
         case 'read':
-            $statement = $conexion->prepare("SELECT * FROM Inventario ORDER BY Id DESC");
+            $statement = $conexion->prepare("SELECT * FROM Inventario ORDER BY FechaIngreso DESC, Estatus DESC");
             $statement->execute();
             $data = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -81,7 +81,7 @@ try {
             $total_pages = ceil($total_items / $items_per_page);
 
             // 3. Añadimos LIMIT para traer solo los de esta página
-            $sql .= " ORDER BY Id DESC LIMIT :offset, :limit";
+            $sql .= " ORDER BY FechaIngreso DESC, Estatus DESC LIMIT :offset, :limit";
             $params[':offset'] = $offset;
             $params[':limit'] = $items_per_page;
 
@@ -97,13 +97,27 @@ try {
                 'status' => 'success',
                 'items' => array_map(function ($item) {
 
-                    // SOLUCIÓN DE RUTAS: Compatible con fotos viejas y fotos nuevas
-                    if (strpos($item['Ruta'], 'uploads/') === 0) {
-                        $rutaFinal = $item['Ruta']; // Es una foto nueva (ej: uploads/remolques/15/foto.jpg)
-                    } else if (!empty($item['Ruta'])) {
-                        $rutaFinal = "img/principal/{$item['Ruta']}"; // Es una foto vieja
+                    // 1. Convertimos cualquier diagonal invertida (\) a diagonal normal (/)
+                    $ruta_normalizada = str_replace('\\', '/', $item['Ruta']);
+                    
+                    // 2. Limpiamos espacios y quitamos la diagonal inicial por si acaso
+                    $ruta_limpia = ltrim(trim($ruta_normalizada), '/');
+
+                    if (strpos($ruta_limpia, 'uploads/') === 0) {
+                        // Es una foto nueva correcta (ej: uploads/remolques/41/foto.png)
+                        $rutaFinal = $ruta_limpia; 
+                        
+                    } else if (strpos($ruta_limpia, 'remolques/') === 0) {
+                        // Le faltaba el uploads/ al principio, se lo agregamos
+                        $rutaFinal = 'uploads/' . $ruta_limpia;
+                        
+                    } else if (!empty($ruta_limpia)) {
+                        // Es una foto vieja
+                        $rutaFinal = "img/principal/{$ruta_limpia}"; 
+                        
                     } else {
-                        $rutaFinal = "img/placeholder.jpg"; // No tiene foto
+                        // No tiene foto
+                        $rutaFinal = "img/placeholder.jpg"; 
                     }
 
                     return [

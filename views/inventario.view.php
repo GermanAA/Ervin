@@ -17,6 +17,7 @@
                         <th>Precio</th>
                         <th>Ubicación</th>
                         <th>Estatus</th>
+                        <th>FechaIngreso</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -227,6 +228,7 @@ function cargarDatos() {
                                 <td>$${item.Price || '0.00'}</td>
                                 <td>${item.Ubicacion || ''}</td>
                                 <td>${item.Estatus || ''}</td>
+                                <td>${item.FechaIngreso || ''}</td>
                                 <td>
                                     <button class="btn btn-sm btn-warning" onclick='editarRegistro(${JSON.stringify(item)})'>Editar</button>
                                     <button class="btn btn-sm btn-danger" onclick="eliminarRegistro(${item.Id})">Eliminar</button>
