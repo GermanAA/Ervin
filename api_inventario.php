@@ -9,6 +9,16 @@ header('Content-Type: application/json');
 
 // Recibimos la acción a realizar
 $action = isset($_POST['action']) ? $_POST['action'] : '';
+// --- NUEVO BLOQUE DE SEGURIDAD INTERNA ---
+$acciones_privadas = ['create', 'update', 'delete'];
+
+// Si la acción es privada y el usuario NO ha iniciado sesión, bloqueamos el acceso
+if (in_array($action, $acciones_privadas)) {
+    if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['usuario'])) {
+        echo json_encode(['status' => 'error', 'message' => 'Acceso denegado. Por favor, inicia sesión.']);
+        exit(); // Detenemos la ejecución aquí mismo
+    }
+}
 
 try {
     switch ($action) {
@@ -26,6 +36,90 @@ try {
             } else {
                 echo $json;
             }
+            break;
+
+        case 'search':
+            // Parámetros de búsqueda y paginación
+            $query = $_POST['query'] ?? '';
+            $condition = $_POST['condition'] ?? '';
+            $Fabricante = $_POST['Fabricante'] ?? '';
+            $model = $_POST['model'] ?? '';
+            $location = $_POST['location'] ?? '';
+            $page = $_POST['page'] ?? 1;
+            $items_per_page = 4; // Sugiero 8 para que cuadre perfecto en grid de 4 columnas (2 filas)
+            $offset = ($page - 1) * $items_per_page;
+
+            // 1. Construcción de la consulta SQL dinámica
+            $sql = "SELECT * FROM Inventario WHERE (Condicion LIKE :query OR Fabricante LIKE :query OR Modelo LIKE :query OR Ubicacion LIKE :query)";
+            $params = [':query' => '%' . $query . '%'];
+
+            if ($condition !== '') {
+                $sql .= " AND Condicion = :condition";
+                $params[':condition'] = $condition;
+            }
+            if ($Fabricante !== '') {
+                $sql .= " AND Fabricante = :Fabricante";
+                $params[':Fabricante'] = $Fabricante;
+            }
+            if ($model !== '') {
+                $sql .= " AND Modelo = :Modelo";
+                $params[':Modelo'] = $model;
+            }
+            if ($location !== '') {
+                $sql .= " AND Ubicacion = :Ubicacion";
+                $params[':Ubicacion'] = $location;
+            }
+
+            // 2. SOLUCIÓN AL BUG DE PAGINACIÓN: Contamos usando EXACTAMENTE los mismos filtros
+            $countSql = str_replace("SELECT *", "SELECT COUNT(*)", $sql);
+            $countStmt = $conexion->prepare($countSql);
+            foreach ($params as $key => $value) {
+                $countStmt->bindValue($key, $value, is_int($value) ? PDO::PARAM_INT : PDO::PARAM_STR);
+            }
+            $countStmt->execute();
+            $total_items = $countStmt->fetchColumn();
+            $total_pages = ceil($total_items / $items_per_page);
+
+            // 3. Añadimos LIMIT para traer solo los de esta página
+            $sql .= " ORDER BY Id DESC LIMIT :offset, :limit";
+            $params[':offset'] = $offset;
+            $params[':limit'] = $items_per_page;
+
+            $stmt = $conexion->prepare($sql);
+            foreach ($params as $key => $value) {
+                $stmt->bindValue($key, $value, is_int($value) ? PDO::PARAM_INT : PDO::PARAM_STR);
+            }
+            $stmt->execute();
+            $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            // 4. Formatear la respuesta
+            $response = [
+                'status' => 'success',
+                'items' => array_map(function ($item) {
+
+                    // SOLUCIÓN DE RUTAS: Compatible con fotos viejas y fotos nuevas
+                    if (strpos($item['Ruta'], 'uploads/') === 0) {
+                        $rutaFinal = $item['Ruta']; // Es una foto nueva (ej: uploads/remolques/15/foto.jpg)
+                    } else if (!empty($item['Ruta'])) {
+                        $rutaFinal = "img/principal/{$item['Ruta']}"; // Es una foto vieja
+                    } else {
+                        $rutaFinal = "img/placeholder.jpg"; // No tiene foto
+                    }
+
+                    return [
+                        'Condicion' => $item['Condicion'],
+                        'Fabricante' => $item['Fabricante'],
+                        'Modelo' => $item['Modelo'],
+                        'Ubicacion' => $item['Ubicacion'],
+                        'Estatus' => $item['Estatus'],
+                        'image_url' => $rutaFinal
+                    ];
+                }, $items),
+                'total_pages' => $total_pages,
+                'current_page' => (int) $page
+            ];
+
+            echo json_encode($response);
             break;
 
         case 'create':
@@ -85,9 +179,16 @@ try {
                 }
             }
 
-            // --- 5. (OPCIONAL) ESPACIO PARA FUTURA ACTUALIZACIÓN ---
-            // Si más adelante agregas columnas en tu BD para guardar las rutas de las fotos,
-            // aquí puedes hacer un UPDATE a la tabla 'Inventario' usando el $id_remolque.
+            // --- 5. ACTUALIZAR LA RUTA PRINCIPAL EN LA BD ---
+            // Usaremos la foto de frente como portada. Si existe, guardamos su ruta.
+            if (isset($rutas_guardadas['foto_frente'])) {
+                $ruta_portada = $rutas_guardadas['foto_frente'];
+                $update_stmt = $conexion->prepare("UPDATE Inventario SET Ruta = :ruta WHERE Id = :id");
+                $update_stmt->execute([
+                    ':ruta' => $ruta_portada,
+                    ':id' => $id_remolque
+                ]);
+            }
 
             echo json_encode([
                 'status' => 'success',

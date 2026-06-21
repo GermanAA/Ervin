@@ -44,7 +44,7 @@ define('BASE_URL', $protocol . '//' . $host . $script_path);
 $pagina_actual = basename($_SERVER['PHP_SELF']);
 
 // Lista de páginas que NO requieren sesión para ser vistas
-$paginas_publicas = ['login.php', 'registrate.php'];
+$paginas_publicas = ['login.php', 'registrate.php', 'index.php', 'api_inventario.php'];
 
 // Si no hay sesión válida Y la página actual NO está en la lista pública, lo expulsamos al login
 if ((!isset($_SESSION['usuario_id']) || !isset($_SESSION['usuario'])) && !in_array($pagina_actual, $paginas_publicas)) {
