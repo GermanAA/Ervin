@@ -38,15 +38,39 @@ function displayGallery(items) {
         // Agregamos clases de Bootstrap para que sea una tarjeta bonita
         itemDiv.classList.add('col-6', 'col-sm-4', 'col-md-3', 'mb-4');
 
-        // Ya no necesitamos el "if", porque PHP ya nos manda la ruta correcta o el placeholder
+    // 1. Evaluamos el estatus para asignar un color de Bootstrap
+        // Usamos toLowerCase() para evitar errores si está escrito en mayúsculas o minúsculas
+        let badgeColor = 'bg-secondary'; // Color por defecto (gris)
+        
+        let estatusNormalizado = item.Estatus ? item.Estatus.toLowerCase() : '';
+
+        if (estatusNormalizado === 'disponible') {
+            badgeColor = 'bg-success'; // Verde para disponible
+        } else if (estatusNormalizado === 'vendido') {
+            badgeColor = 'bg-danger';  // Rojo para vendido
+        } else if (estatusNormalizado === 'apartado') {
+            badgeColor = 'bg-warning text-dark'; // Amarillo para apartado (opcional)
+        }
+
+        // 2. Inyectamos el HTML usando nuestra nueva variable badgeColor
         itemDiv.innerHTML = `
             <div class="card h-100 shadow-sm bg-dark text-light border-secondary">
-            <img src="${item.image_url}" class="card-img-top img-fluid" alt="${item.Fabricante} ${item.Modelo}" style="aspect-ratio: 1 / 1; width: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x400/cccccc/666666?text=Sin+Fotografia';">
+                <img 
+                    src="${item.image_url}" 
+                    class="card-img-top img-fluid" 
+                    alt="${item.Fabricante} ${item.Modelo}" 
+                    style="aspect-ratio: 1 / 1; width: 100%; object-fit: cover;" 
+                    onerror="this.onerror=null; this.src='https://via.placeholder.com/400x400/cccccc/666666?text=Sin+Fotografia';"
+                >
                 <div class="card-body">
-                    <h5 class="card-title">${item.Fabricante} ${item.Modelo}</h5>
+                    <h5 class="card-title text-white fw-bold">${item.Fabricante} ${item.Modelo}</h5>
                     <p class="card-text mb-1"><strong>Condición:</strong> ${item.Condicion}</p>
-                    <p class="card-text mb-1"><strong>Ubicación:</strong> ${item.Ubicacion}</p>
-                    <p class="card-text"><strong>Estatus:</strong> ${item.Estatus}</p>
+                    <p class="card-text mb-2"><strong>Ubicación:</strong> ${item.Ubicacion}</p>
+                    
+                    <p class="card-text">
+                        <strong>Estatus:</strong> 
+                        <span class="badge ${badgeColor} fs-6">${item.Estatus}</span>
+                    </p>
                 </div>
             </div>
         `;
