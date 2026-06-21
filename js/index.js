@@ -40,8 +40,8 @@ function displayGallery(items) {
 
         // Ya no necesitamos el "if", porque PHP ya nos manda la ruta correcta o el placeholder
         itemDiv.innerHTML = `
-            <div class="card h-100 shadow-sm">
-                <img src="${item.image_url}" class="card-img-top img-fluid" alt="${item.Fabricante} ${item.Modelo}" style="height: 200px; object-fit: cover;">
+            <div class="card h-100 shadow-sm bg-dark text-light border-secondary">
+            <img src="${item.image_url}" class="card-img-top img-fluid" alt="${item.Fabricante} ${item.Modelo}" style="aspect-ratio: 1 / 1; width: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x400/cccccc/666666?text=Sin+Fotografia';">
                 <div class="card-body">
                     <h5 class="card-title">${item.Fabricante} ${item.Modelo}</h5>
                     <p class="card-text mb-1"><strong>Condición:</strong> ${item.Condicion}</p>
@@ -54,20 +54,7 @@ function displayGallery(items) {
     });
 }
 
-// function setupPagination(totalPages, currentPage) {
-//     const pagination = document.getElementById('pagination');
-//     pagination.innerHTML = ''; // Limpia la paginación anterior
 
-//     for (let i = 1; i <= totalPages; i++) {
-//         const pageBtn = document.createElement('li');
-//         pageBtn.textContent = i;
-//         if (i === currentPage) {
-//             pageBtn.disabled = true;
-//         }
-//         pageBtn.addEventListener('click', () => loadPage(i));
-//         pagination.appendChild(pageBtn);
-//     }
-// }
 
 function setupPagination(totalPages, currentPage) {
     const pagination = document.getElementById('pagination');

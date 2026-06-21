@@ -43,18 +43,24 @@ define('BASE_URL', $protocol . '//' . $host . $script_path);
 // ===================================================================
 $pagina_actual = basename($_SERVER['PHP_SELF']);
 
-// Lista de páginas que NO requieren sesión para ser vistas
-$paginas_publicas = ['login.php', 'registrate.php', 'index.php', 'api_inventario.php'];
+// Páginas que TODOS pueden ver (logueados o no)
+$paginas_publicas = ['index.php', 'api_inventario.php'];
 
-// Si no hay sesión válida Y la página actual NO está en la lista pública, lo expulsamos al login
-if ((!isset($_SESSION['usuario_id']) || !isset($_SESSION['usuario'])) && !in_array($pagina_actual, $paginas_publicas)) {
+// Páginas que SOLO los que NO han iniciado sesión pueden ver
+$paginas_invitados = ['login.php', 'registrate.php'];
+
+// Unimos ambas para la primera validación
+$todas_permitidas = array_merge($paginas_publicas, $paginas_invitados);
+
+// Si NO está logueado y la página NO está permitida, al login.
+if ((!isset($_SESSION['usuario_id']) || !isset($_SESSION['usuario'])) && !in_array($pagina_actual, $todas_permitidas)) {
     header('Location: ' . BASE_URL . 'login.php');
     exit();
 }
 
-// Si el usuario ya está logueado e intenta entrar al login o registro, lo mandamos al dashboard
-if ((isset($_SESSION['usuario_id']) && isset($_SESSION['usuario'])) && in_array($pagina_actual, $paginas_publicas)) {
-    header('Location: ' . BASE_URL . 'load.php');
+// Si SÍ está logueado e intenta entrar a login o registro, lo mandamos al inventario
+if ((isset($_SESSION['usuario_id']) && isset($_SESSION['usuario'])) && in_array($pagina_actual, $paginas_invitados)) {
+    header('Location: ' . BASE_URL . 'inventario.php');
     exit();
 }
 

@@ -204,7 +204,7 @@
     // Funciones que se ejecutan POR CLIC (No necesitan esperar)
     // =========================================================
 
-    function cargarDatos() {
+function cargarDatos() {
         let formData = new FormData();
         formData.append('action', 'read');
 
@@ -238,6 +238,40 @@
             })
             .catch(error => console.error('Error:', error));
     }
+
+    /*         fetch('api_inventario.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(response => {
+                    const tbody = document.getElementById('tabla-body');
+                    tbody.innerHTML = '';
+
+                    if (response.status === 'success') {
+                        response.data.forEach(item => {
+                            tbody.innerHTML += `
+                                <tr>
+                                    <td>${item.Id}</td>
+                                    <td>${item.Fabricante || ''}</td>
+                                    <td>${item.Modelo || ''}</td>
+                                    <td>$${item.Price || '0.00'}</td>
+                                    <td>${item.Ubicacion || ''}</td>
+                                    <td>${item.Estatus || ''}</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning" onclick='editarRegistro(${JSON.stringify(item)})'>Editar</button>
+                                        <button class="btn btn-sm btn-danger" onclick="eliminarRegistro(${item.Id})">Eliminar</button>
+                                    </td>
+                                </tr>
+                            `;
+                        });
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        
+        
+        
+            } */
 
     function abrirModal() {
         form.reset();
