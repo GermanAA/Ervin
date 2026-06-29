@@ -55,7 +55,7 @@
                         <div class="carousel-item active">
                             <img src="img\principal\JumbotronTracto.webp" class="d-block" alt="...">
                         </div>
-                        
+
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -109,7 +109,7 @@
                                     <option selected value="">Usado o Nuevo</option>
                                     <option value="Nuevo">Nuevo</option>
                                     <option value="Usado">Usado</option>
-                                 
+
                                 </select>
                             </div>
 
@@ -163,6 +163,8 @@
             </div>
         </div>
 
+
+
         <div class="row">
 
             <!-- Div para mostrar los resultados de la galería -->
@@ -188,6 +190,77 @@
         </a>
 
         <!-- Contact Section -->
+
+        <div class="container my-5">
+            <div class="row mb-4">
+                <div class="col-12 text-center">
+                    <h2 class="fw-bold text-light">Nuestras Ubicaciones</h2>
+                    <p class="text-secondary">Encuentra nuestras oficinas, patio de exhibición y taller de servicio.</p>
+                </div>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card bg-dark border-secondary h-100 shadow-sm">
+                        <div class="card-body p-3">
+                            <h5 class="card-title text-white mb-3">🏢 Oficinas </h5>
+                            <div class="ratio ratio-16x9">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.452160603592!2d-99.15647422532932!3d19.30617604470734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce01e4d63a6a37%3A0xd6ec11dffe0e9320!2sATZ%20transportes!5e0!3m2!1ses-419!2smx!4v1782753722871!5m2!1ses-419!2smx"
+                                    style="border:0; border-radius: 8px;"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                            <p class="text-light mt-3 mb-0 small">
+                                <strong>Dirección:</strong>San Benito Mnz 659, Pedregal de Sta Úrsula, Coyoacán, 04600 Ciudad de México, CDMX
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card bg-dark border-secondary h-100 shadow-sm">
+                        <div class="card-body p-3">
+                            <h5 class="card-title text-white mb-3">🚛 Patio de Equipos</h5>
+                            <div class="ratio ratio-16x9">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1795.2611422946402!2d-99.42289067708208!3d19.234239998315918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDE0JzAzLjMiTiA5OcKwMjUnMTkuNiJX!5e1!3m2!1ses-419!2smx!4v1782754333566!5m2!1ses-419!2smx"
+                                    style="border:0; border-radius: 8px;"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                            <p class="text-light mt-3 mb-0 small">
+                                <strong>Dirección:</strong> 007, 52655 Guadalupe Victoria, Méx.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card bg-dark border-secondary h-100 shadow-sm">
+                        <div class="card-body p-3">
+                            <h5 class="card-title text-white mb-3">🔧 Patio de Equipos</h5>
+                            <div class="ratio ratio-16x9">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d223.91609715144824!2d-98.55763670224803!3d19.59076204097515!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e1!3m2!1ses-419!2smx!4v1782754948506!5m2!1ses-419!2smx"
+                                    style="border:0; border-radius: 8px;"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                            <p class="text-light mt-3 mb-0 small">
+                                <strong>Dirección:</strong> Periférico Sur, Loma Bonita, 90203 Heroica Cdad. de Calpulalpan, Tlax.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="row" id="Contacto">
             <h2 class="text-center mb-5">Como Podemos Ayudarte</h2>
